@@ -1,15 +1,16 @@
+image:https://img.shields.io/badge/License-MPL_2.0-blue.svg[MPL-2.0,link="https://opensource.org/licenses/MPL-2.0"]
+image:https://img.shields.io/badge/Philosophy-Palimpsest-purple.svg[Palimpsest,link="https://github.com/hyperpolymath/palimpsest-licence"]
+
 // SPDX-License-Identifier: MIT
 // SPDX-FileCopyrightText: 2025 hyperpolymath
 
 = Claude for Gecko
 
-image:https://img.shields.io/badge/license-AGPL--3.0-blue.svg[AGPL-3.0,link="https://www.gnu.org/licenses/agpl-3.0"] image:https://img.shields.io/badge/philosophy-Palimpsest-purple.svg[Palimpsest,link="https://github.com/hyperpolymath/palimpsest-licence"]
 :toc: auto
 :icons: font
 
 **Unofficial Claude AI assistant for Firefox and Gecko-based browsers**
 
-image::https://img.shields.io/badge/License-MIT-blue.svg[License: MIT]
 image::https://img.shields.io/badge/Firefox-115%2B-orange.svg[Firefox 115+]
 image::https://img.shields.io/badge/Manifest-V3-green.svg[Manifest V3]
 
