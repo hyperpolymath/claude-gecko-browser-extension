@@ -1,11 +1,14 @@
-image:https://img.shields.io/badge/License-MPL_2.0-blue.svg[MPL-2.0,link="https://opensource.org/licenses/MPL-2.0"]
+image:https://img.shields.io/badge/license-PMPL--1.0-blue.svg[License,link="https://github.com/hyperpolymath/palimpsest-license"]
 image:https://img.shields.io/badge/Philosophy-Palimpsest-purple.svg[Palimpsest,link="https://github.com/hyperpolymath/palimpsest-licence"]
 
 
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PMPL-1.0
 // SPDX-FileCopyrightText: 2025 hyperpolymath
 
 = Claude for Gecko
+
+
+
 
 :toc: auto
 :icons: font
@@ -117,7 +120,7 @@ The extension will be submitted to https://addons.mozilla.org[Firefox Add-ons] o
 
 === Legal License
 
-This project is licensed under the **MIT License** - see link:LICENSE[LICENSE] for details.
+This project is licensed under the **Palimpsest-MPL License v1.0 (PMPL-1.0)** - see link:LICENSE[LICENSE] for details.
 
 You are free to use, modify, and distribute this software.
 
@@ -159,7 +162,7 @@ claude-gecko-browser-extension/
 │       └── icon-*.png      # Extension icons
 ├── docs/
 │   └── PALIMPSEST.adoc     # Philosophical license
-├── LICENSE                 # MIT License
+├── LICENSE                 # Palimpsest-MPL License v1.0 (PMPL-1.0)
 ├── README.adoc             # This file
 └── STATE.scm               # Project state checkpoint
 ----
