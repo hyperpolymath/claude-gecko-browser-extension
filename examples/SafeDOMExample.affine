@@ -1,0 +1,125 @@
+// SPDX-License-Identifier: MPL-2.0
+// Example: Using SafeDOM for formally verified DOM mounting
+
+import SafeDOM
+
+// Example 1: Basic mounting with error handling
+fn mount_app() {
+  SafeDOM::mount_safe(
+    "#app",
+    "<div><h1>Hello, World!</h1><p>Mounted safely with proofs.</p></div>",
+    on_success: fn(el) {
+      Console::log("✓ App mounted successfully!")
+      Console::log("Element: ", el)
+    },
+    on_error: fn(err) {
+      Console::error("✗ Mount failed: ", err)
+    }
+  )
+}
+
+// Example 2: Wait for DOM ready before mounting
+fn mount_when_dom_ready() {
+  SafeDOM::mount_when_ready(
+    "#app",
+    "<div class='container'><h1>App Title</h1></div>",
+    on_success: fn(_) { Console::log("✓ Mounted after DOM ready") },
+    on_error: fn(err) { Console::error("✗ Failed: ", err) }
+  )
+}
+
+// Example 3: Batch mounting (atomic - all or nothing)
+fn mount_multiple() {
+  let specs = [
+    {selector: "#header", html: "<header><h1>Site Title</h1></header>"},
+    {selector: "#nav", html: "<nav><a href='/'>Home</a></nav>"},
+    {selector: "#main", html: "<main><p>Content here</p></main>"},
+    {selector: "#footer", html: "<footer>© 2026</footer>"}
+  ]
+
+  match SafeDOM::mount_batch(specs) {
+    Ok(elements) => {
+      Console::log("✓ Successfully mounted ", len(elements), " elements")
+      for el in elements {
+        Console::log("  -", el)
+      }
+    }
+    Error(err) => {
+      Console::error("✗ Batch mount failed: ", err)
+      Console::error("  (None were mounted - atomic operation)")
+    }
+  }
+}
+
+// Example 4: Explicit validation before mounting
+fn mount_with_validation() {
+  // Validate selector first
+  match ProvenSelector::validate("#my-app") {
+    Error(e) => Console::error("Invalid selector: ", e)
+    Ok(valid_selector) => {
+      // Validate HTML
+      match ProvenHTML::validate("<div>Content</div>") {
+        Error(e) => Console::error("Invalid HTML: ", e)
+        Ok(valid_html) => {
+          // Now mount with proven safety
+          match SafeDOM::mount(valid_selector, valid_html) {
+            Mounted(el) => Console::log("✓ Mounted with validated inputs: ", el)
+            MountPointNotFound(s) => Console::error("✗ Element not found: ", s)
+            InvalidSelector(_) => Console::error("Impossible - already validated")
+            InvalidHTML(_) => Console::error("Impossible - already validated")
+          }
+        }
+      }
+    }
+  }
+}
+
+// Example 5: Integration with TEA
+namespace MyApp {
+  struct Model {
+    message: String
+  }
+
+  enum Msg {
+    NoOp
+  }
+
+  fn init() -> Model {
+    Model{message: "Hello from TEA"}
+  }
+
+  fn update(_model: Model, _msg: Msg) -> Model {
+    _model
+  }
+
+  fn view(model: Model) -> String {
+    "<div><h1>" + model.message + "</h1></div>"
+  }
+}
+
+fn mount_tea_app() {
+  let model = MyApp::init()
+  let html = MyApp::view(model)
+
+  SafeDOM::mount_when_ready(
+    "#tea-app",
+    html,
+    on_success: fn(el) {
+      Console::log("✓ TEA app mounted")
+      // Set up event handlers, subscriptions here
+    },
+    on_error: fn(err) { Console::error("✗ TEA mount failed: ", err) }
+  )
+}
+
+// Entry point
+fn main() {
+  Console::log("SafeDOM Examples")
+  Console::log("================\n")
+
+  // Choose which example to run
+  mount_when_dom_ready()  // Run on DOM ready
+}
+
+// Auto-execute when module loads
+main()
