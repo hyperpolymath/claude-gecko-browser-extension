@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: MPL-2.0
+# META.a2ml — Meta-level information for claude-gecko-browser-extension
+
+[metadata]
+version = "1.0"
+
+[architecture-decisions]
+decisions = []
+
+[development-practices]
+code-style = []
+
+[development-practices.security]
+principle = "Defense in depth"
+
+[development-practices.testing]
+
+[development-practices.versioning]
+scheme = "SemVer"
+
+[development-practices.documentation]
+format = "AsciiDoc"
+
+[development-practices.branching]
+strategy = "main for stable"
+
+[design-rationale]
+rationale = []

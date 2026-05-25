@@ -1,0 +1,21 @@
+# SPDX-License-Identifier: MPL-2.0
+# PLAYBOOK.a2ml — Operational runbook for claude-gecko-browser-extension
+
+[metadata]
+version = "1.0.0"
+
+[deployment]
+procedures = []
+
+[deployment.procedures.deploy]
+build = "just build"
+test = "just test"
+release = "just release"
+
+[deployment.procedures.rollback]
+
+[deployment.procedures.debug]
+
+[alerts]
+
+[contacts]

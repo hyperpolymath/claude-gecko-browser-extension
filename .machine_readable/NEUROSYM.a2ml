@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: MPL-2.0
+# NEUROSYM.a2ml — Neurosymbolic integration config for claude-gecko-browser-extension
+
+[metadata]
+version = "1.0.0"
+
+[symbolic-layer]
+type = "scheme"
+reasoning = "deductive"
+verification = "formal"
+
+[neural-layer]
+embeddings = false
+fine-tuning = false
+
+[integration]

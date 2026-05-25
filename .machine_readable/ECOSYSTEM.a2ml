@@ -1,0 +1,22 @@
+# SPDX-License-Identifier: MPL-2.0
+# ECOSYSTEM.a2ml — Ecosystem position for claude-gecko-browser-extension
+
+[metadata]
+version = "1.0"
+
+[project]
+name = "claude-gecko-browser-extension"
+type = ""
+purpose = ""
+
+[position-in-ecosystem]
+category = ""
+subcategory = ""
+unique-value = []
+
+[related-projects]
+projects = []
+
+[description]
+what-this-is = []
+what-this-is-not = []
